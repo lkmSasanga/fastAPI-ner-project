@@ -15,20 +15,19 @@ data = json.loads("[" + f.read().replace("}\n{", "},\n{") + "]")
 
 texts = [i['text'] for i in data]
 
-string_texts = ''.join(str(x) for x in texts)
+# stringTexts = ''.join(str(x) for x in texts)
 
-print(len(string_texts))
-print(type(string_texts))
 
-# def converttostr(texts, seperator):
-#    final_str = seperator.join(texts)
-#    return final_str
 
-# seperator = ' '
-# stringTexts = converttostr(texts, seperator)
+def convertToStr(texts, seperator):
+   final_str = seperator.join(str(x) for x in texts)
+   return final_str
 
-# print(type(stringTexts))
-# print(stringTexts)
+seperator = ' '
+stringTexts = convertToStr(texts, seperator)
+
+print(len(stringTexts))
+print(type(stringTexts))
 
 # def listToString(texts): 
 
@@ -42,7 +41,7 @@ print(type(string_texts))
 # print(type(listToString(texts))) 
 
 
-doc = nlp(string_texts)
+doc = nlp(stringTexts)
 
 for ent in doc.ents:
     print(ent.text, ent.label_)
