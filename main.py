@@ -39,14 +39,14 @@ nlp.max_length = 4000000  # or even higher
 # stringTexts = ''.join(str(x) for x in texts)
 
 
-def convertToStr(texts, seperator):
-   final_str = seperator.join(str(x) for x in texts)
-   return final_str
+# def convertToStr(texts, seperator):
+#    final_str = seperator.join(str(x) for x in texts)
+#    return final_str
 
-texts = extractData()
+stringTexts = extractData()
 
-seperator = ' '
-stringTexts = convertToStr(texts, seperator)
+# seperator = ' '
+# stringTexts = convertToStr(texts, seperator)
 
 
 
