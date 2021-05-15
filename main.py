@@ -1,6 +1,3 @@
-from fastapi import FastAPI
-
-app = FastAPI()
 
 from importJson import extractData
 from postData import sendData
