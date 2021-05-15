@@ -17,10 +17,10 @@ class ReviewsModel(BaseModel):
 
 
 @app.post('/send_reviews')
-async def getdData(texts: ReviewsModel):
+async def getdData(text: ReviewsModel):
     # data = extractData()
-    print('Send data function called')
-    ner = nerProcess(texts)
+    print('Send data function called', text.texts)
+    ner = nerProcess(text.texts)
     return ner
 
 def nerProcess(texts):
