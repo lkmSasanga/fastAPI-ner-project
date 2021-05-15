@@ -3,28 +3,17 @@ from fastapi import FastAPI
 
 from importJson import extractData
 
-app = FastAPI()
-
 nlp = spacy.load("en_core_web_sm")
 
 # nlp.max_length = 4000000  # or even higher
 
-# data = extractData()
-
-from pydantic import BaseModel
-class ReviewsModel(BaseModel):
-    texts: str
-
-
-@app.post('/send_reviews')
-async def getdData(text: ReviewsModel):
-    # data = extractData()
-    print('Send data function called', text.texts)
-    ner = nerProcess(text.texts)
+async def getdData(data):
+    print('Send data function called', data)
+    ner = nerProcess(data)
     return ner
 
-def nerProcess(texts):
     # NER process
+def nerProcess(texts):
     try:
         doc = nlp(texts)
 
@@ -32,6 +21,6 @@ def nerProcess(texts):
 
         for ent in doc.ents:
             print(ent.text, ent.label_)
-            # return ent.text, ent.label_
+            
     except Exception:
         print('Error Occured') 
