@@ -1,43 +1,20 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
 
-from importJson import extractData
-from postData import sendData
-from nerOfData import nerProcess
+from ner_of_data import get_data
 
-data = extractData()
+class ReviewsModel(BaseModel):
+    texts: str
+    
+app = FastAPI()
 
-print(nerProcess(data))
+@app.post('/send_reviews')
+async def send_data(text: ReviewsModel):
+    print(text.texts)
+    await get_data(text.texts)
+    return text.texts
 
-# Getting the pipeline component
-# ner = nlp.get_pipe("ner")
-
-# Training data
-# TRAIN_DATA = [
-#     ("Awesome place,gets crowded easily in the evenings,most famous restaurant in Ella", {"entities": [(76, 80, "GPE")]})
-# ]
-
-# Adding labels to the `ner`
-# for _, annotations in TRAIN_DATA:
-#   for ent in annotations.get("entities"):
-#     ner.add_label(ent[2])
-
-# Disable pipeline components you dont need to change
-# pipe_exceptions = ["ner", "trf_wordpiecer", "trf_tok2vec"]
-# unaffected_pipes = [pipe for pipe in nlp.pipe_names if pipe not in pipe_exceptions]
-
-
-# stringTexts = extractData()
-
-# seperator = ' '
-# stringTexts = convertToStr(texts, seperator)
-
-# print(type(stringTexts))
-
-
-
-# @app.get("/")
-# def home():
-#     return {"Hello": "FastAPI"}
-
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Optional[str] = None):
-#     return {"item_id": item_id, "q": q}
+# @app.get('/reviews')
+# async def sendData():
+#     data = extractData()
+#     return data
