@@ -1,6 +1,4 @@
 import spacy
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -27,14 +25,4 @@ def ner_process(texts):
             "entity_label": ent.label_
         }]
 
-    # return entities
-
-    # json_compatible_item_data = jsonable_encoder(entities)
-    return JSONResponse(entities)
-
-    # print(entities)
-
-    # try:
-    #
-    # finally:
-    #     print('No any entities found!')
+    return entities
