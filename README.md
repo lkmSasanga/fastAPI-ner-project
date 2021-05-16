@@ -12,9 +12,12 @@ How To Use This
 ---------------
 
 1. Navigate to file `/fastAPI-ner-project`.
-2. Register a new Uber application and make your Redirect URI `http://localhost:7000/submit` - ensure that both the `profile` and `history` OAuth scopes are checked.
-3. Fill in the relevant information in the `config.json` file in the root folder and add your client id and secret as the environment variables `UBER_CLIENT_ID` and `UBER_CLIENT_SECRET`.
-4. Run `export UBER_CLIENT_ID="`*{your client id}*`"&&export UBER_CLIENT_SECRET="`*{your client secret}*`"`
-5. Run `pip install -r requirements.txt` to install dependencies
-6. Run `python app.py`
-7. Navigate to http://localhost:7000 in your browser
+2. Run `pip install -r requirements.txt` to install dependencies.
+3. Run `uvicorn main:app --reload` to start the server.
+4. Navigate to http://127.0.0.1:8000/docs in your browser.
+5. Click on `POST`.
+   ![alt text](assets/1.png)
+6. Click on `Try it out`.
+   ![alt text](assets/2.png)
+7. Input the string to `"texts": "your_string"`
+   ![alt text](assets/2.png)
