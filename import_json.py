@@ -1,5 +1,6 @@
 import json
 
+
 def extract_data():
     # Opening JSON file
     

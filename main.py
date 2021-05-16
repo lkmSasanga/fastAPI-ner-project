@@ -3,10 +3,13 @@ from pydantic import BaseModel
 
 from ner_of_data import get_data
 
+
 class ReviewsModel(BaseModel):
     texts: str
-    
+
+
 app = FastAPI()
+
 
 @app.post('/send_reviews')
 async def send_data(text: ReviewsModel):
