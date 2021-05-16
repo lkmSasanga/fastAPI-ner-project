@@ -1,6 +1,6 @@
 import json
 
-def extractData():
+def extract_data():
     # Opening JSON file
     
     print('Reading data from JSON file...')
@@ -13,9 +13,9 @@ def extractData():
     texts = [i['text'] for i in data]
 
     # convert to strings
-    stringTexts = ''.join(str(x) for x in texts) # extracted texts
+    string_texts = ''.join(str(x) for x in texts) # extracted texts
 
-    return stringTexts
+    return string_texts
 
     # Closing file
     # f.close()

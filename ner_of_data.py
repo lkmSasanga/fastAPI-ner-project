@@ -1,18 +1,16 @@
 import spacy
 from fastapi import FastAPI
 
-from importJson import extractData
-
 nlp = spacy.load("en_core_web_sm")
 
 # nlp.max_length = 4000000  # or even higher
 
-async def getdData(data):
-    ner = nerProcess(data)
+async def get_data(data):
+    ner = ner_process(data)
     return ner
 
     # NER process
-def nerProcess(texts):
+def ner_process(texts):
     try:
         doc = nlp(texts)
 

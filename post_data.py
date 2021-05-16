@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from nerOfData import getdData
+from ner_of_data import get_data
 
 class ReviewsModel(BaseModel):
     texts: str
@@ -9,9 +9,9 @@ class ReviewsModel(BaseModel):
 app = FastAPI()
 
 @app.post('/send_reviews')
-async def sendData(text: ReviewsModel):
+async def send_data(text: ReviewsModel):
     print(text.texts)
-    await getdData(text.texts)
+    await get_data(text.texts)
     return text.texts
 
 # @app.get('/reviews')
