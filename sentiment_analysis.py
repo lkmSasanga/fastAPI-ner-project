@@ -1,12 +1,12 @@
 import spacy
 
-from importJson import extractData
+from import_json import extract_data
 
 
 nlp = spacy.load("en_core_web_sm")
 
 
-data = extractData()
+data = extract_data()
 
 doc = nlp(data)
 
