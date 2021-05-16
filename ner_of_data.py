@@ -2,22 +2,21 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
+# increase nlp length
+nlp.max_length = 4000000
 
-# nlp.max_length = 4000000  # or even higher
 
-
+# call ner_process asynchronous
 async def get_data(data):
     return ner_process(data)
 
-    # NER process
 
-
+# ner process
 def ner_process(texts):
     try:
         doc = nlp(texts)
-        print('***NER process started...')
+        print('ner process started...')
         for ent in doc.ents:
             print(ent.text, ent.label_)
-
     finally:
-        print('Error Occurred')
+        print('No any entities found!')

@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from ner_of_data import get_data
 
 
+# model to validate data
 class ReviewsModel(BaseModel):
     texts: str
 
@@ -11,6 +12,9 @@ class ReviewsModel(BaseModel):
 app = FastAPI()
 
 
+# @route   POST /send_reviews
+# @desc    send reviews to ner
+# @access  public
 @app.post('/send_reviews')
 async def send_data(text: ReviewsModel):
     print(text.texts)
