@@ -15,9 +15,9 @@ How To Use This
 2. Run `pip install -r requirements.txt` to install dependencies.
 3. Run `uvicorn main:app --reload` to start the server.
 4. Navigate to http://127.0.0.1:8000/docs in your browser.
-5. Click on `POST`._
+5. Click on `POST`. <br/>
    ![alt text](assets/1.png)
-6. Click on `Try it out`._
+6. Click on `Try it out`. <br/>
    ![alt text](assets/2.png)
-7. Input the string to `"texts": "your_string"`_
+7. Input the string to `"texts": "your_string"`. <br/>
    ![alt text](assets/2.png)
