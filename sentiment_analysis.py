@@ -5,13 +5,10 @@ from import_json import extract_data
 
 nlp = spacy.load("en_core_web_sm")
 
-
 nlp.add_pipe("spacytextblob")
 
-
 # extract data from json
-# my_text = extract_data()
-my_text = 'bad'
+my_text = extract_data()
 doc = nlp(my_text)
 
 # get polarity score of the text
