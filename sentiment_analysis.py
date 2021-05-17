@@ -1,24 +1,28 @@
 import spacy
+from spacytextblob.spacytextblob import SpacyTextBlob
 
 from import_json import extract_data
-
 
 nlp = spacy.load("en_core_web_sm")
 
 
-data = extract_data()
+nlp.add_pipe("spacytextblob")
 
-doc = nlp(data)
 
-# Tokenizing
-token_list = [token for token in doc]
+# extract data from json
+# my_text = extract_data()
+my_text = 'bad'
+doc = nlp(my_text)
 
-# Removing stop words
-filtered_tokens = [token for token in doc if not token.is_stop]
+# get polarity score of the text
+sentiment_polarity = doc._.polarity
+print(sentiment_polarity)
 
-# Normalization - lemma
-lemmas = [ f"Token: {token}, lemma: {token.lemma_}" 
-    for token in filtered_tokens ]
+# get polarity score of the text
+sentiment_subjectivity = doc._.subjectivity
+print(sentiment_subjectivity)
 
-# print(filtered_tokens)
-print(lemmas)
+# get polarity score of the text
+sentiment_assessments = doc._.assessments
+print(sentiment_assessments)
+
