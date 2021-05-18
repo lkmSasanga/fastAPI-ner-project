@@ -7,12 +7,12 @@ nlp.max_length = 4000000
 
 
 # call ner_process asynchronous
-async def get_data(data):
-    return ner_process(data)
+# async def get_data(data):
+#     return ner_process(data)
 
 
 # ner process
-def ner_process(texts):
+async def get_data(texts):
     doc = nlp(texts)
     print('ner process started...')
 

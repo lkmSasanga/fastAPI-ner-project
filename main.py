@@ -19,7 +19,6 @@ app = FastAPI()
 @app.post('/send_reviews')
 async def send_data(text: ReviewsModel):
     print(text.texts)
-    await get_data(text.texts)
-    return text.texts
-
-
+    output = get_data(text.texts)
+    print(output)
+    return {"status": 200}
