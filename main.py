@@ -13,12 +13,17 @@ class ReviewsModel(BaseModel):
 app = FastAPI()
 
 
+@app.get('/')
+def home():
+    return {'data': 'Welcome to FastAPI'}
+
+
 # @route   POST /send_reviews
 # @desc    send reviews to ner
 # @access  public
 @app.post('/send_reviews')
 async def send_data(text: ReviewsModel):
     print(text.texts)
-    output = get_data(text.texts)
+    output = await get_data(text.texts)
     print(output)
     return {"status": 200}
